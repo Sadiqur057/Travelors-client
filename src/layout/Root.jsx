@@ -1,11 +1,15 @@
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Footer from "../pages/shared/Footer";
+import { NavBar } from "../pages/shared/NavBar";
 
 const Root = () => {
   return (
     <>
-      <h1>Nav</h1>
+      <NavBar></NavBar>
+      <ToastContainer></ToastContainer>
       <Outlet></Outlet>
-      <h1>footer</h1>
+      <Footer></Footer>
     </>
   );
 };
