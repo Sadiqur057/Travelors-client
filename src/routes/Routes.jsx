@@ -10,11 +10,13 @@ import AllTouristSpots from "../pages/Tourist/AllTouristSpots";
 import CountrySpecificSpots from "../pages/Tourist/CountrySpecificSpots";
 import UpdateTouristSpot from "../pages/Tourist/UpdateTouristSpot";
 import PrivateRoutes from "./PrivateRoutes";
+import ErrorPage from "../pages/errorPage/ErrorPage";
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
