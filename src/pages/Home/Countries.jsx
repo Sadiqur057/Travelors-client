@@ -1,16 +1,27 @@
 import { useEffect, useState } from "react";
 import Country from "./Country";
+import { Spinner } from "@material-tailwind/react";
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("https://travelors-server.vercel.app/countries")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setCountries(data);
+        setLoading(false)
       });
   }, []);
+
+  if (loading) {
+    return (
+      <div className="mt-10 h-32 w-full flex justify-center items-center">
+        <Spinner className="h-12 w-12" color="teal" />
+      </div>
+    );
+  }
 
   return (
     <section className=" body-font w-[90%] md:w-5/6 mx-auto ">
