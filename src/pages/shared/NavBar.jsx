@@ -11,6 +11,7 @@ import {
   Collapse,
   Typography,
   IconButton,
+  Spinner,
 } from "@material-tailwind/react";
 
 export function NavBar() {
@@ -40,9 +41,9 @@ export function NavBar() {
     });
   };
   const activeStyles =
-    "lg:border-b transition duration-300 ease-in-out px-3 lg:py-2 border-c-primary font-bold hover:bg-c-primary hover:text-[#fff] text-[15px] my-2 lg:my-0 mx-0 hover:rounded";
+    "lg:border-b transition duration-300 ease-in-out px-3 border-c-primary font-bold hover:bg-c-primary hover:text-[#fff] text-[15px] my-2 lg:my-0 mx-0 hover:rounded";
   const inactiveStyles =
-    "px-3 lg:py-2 font-medium border-y border-transparent   mx-1  hover:font-black-800 rounded hover:bg-base-200  text-[15px] my-2 lg:my-0 mx-0";
+    "px-3  font-medium border-y border-transparent   mx-1  hover:font-black-800 rounded hover:bg-base-200  text-[15px] my-2 lg:my-0 mx-0";
 
   const links = (
     <>
@@ -96,14 +97,14 @@ export function NavBar() {
   );
 
   const darkNav =
-    "sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 bg-neutral text-white border-none";
+    "sticky top-0 z-10 h-max max-w-full rounded-none px-4 lg:px-8 l bg-neutral text-white border-none";
   const lightNav =
-    "sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4  text-c-black";
+    "sticky top-0 z-10 h-max max-w-full rounded-none px-4 lg:px-8   text-c-black";
   return (
     <div className="max-h-[768px] w-full overflow-hidden border-0 outline-none">
       <Navbar className={theme === "light" ? lightNav : darkNav}>
-        <div className="flex items-center justify-between ">
-          <Typography className="text-c-primary mr-4 cursor-pointer font-bold text-2xl md:text-3xl py-3 md:py-0">
+        <div className="flex items-center justify-between h-[40px] md:h-[50px]">
+          <Typography className="text-c-primary mr-4 cursor-pointer font-bold text-2xl md:text-3xl ">
             <Link to="/">Travellors</Link>
           </Typography>
           <div className="flex items-center gap-4">
@@ -148,8 +149,8 @@ export function NavBar() {
             <div className="flex items-center gap-x-1">
               {user && (
                 <>
-                  <div id="user" className="btn-circle avatar">
-                    <div className="w-full rounded-full">
+                  <div id="user" className="btn-circle avatar flex items-center justify-center">
+                    <div className="w-full max-w-[40px] max-h-[40px] rounded-full">
                       <img
                         className="w-full h-full"
                         alt="Profile Picture"
@@ -168,7 +169,7 @@ export function NavBar() {
                   Logout
                 </button>
               ) : loading ? (
-                <span className="loading loading-spinner loading-md mr-10"></span>
+                <Spinner className="h-8 w-8" color="teal" />
               ) : (
                 <>
                   {" "}
@@ -239,7 +240,7 @@ export function NavBar() {
                 Logout
               </button>
             ) : loading ? (
-              <span className="loading loading-spinner loading-md mr-10"></span>
+              <Spinner className="h-8 w-8" color="teal" />
             ) : (
               <>
                 {" "}
