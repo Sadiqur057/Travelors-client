@@ -1,7 +1,9 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 import React from "react";
 import {
@@ -13,6 +15,24 @@ import {
 
 export function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
+
+  const prevTheme = localStorage.getItem("theme") || "light";
+  const [theme, setTheme] = useState(prevTheme);
+  console.log(theme);
+
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
+
   const { user, logOutUser, loading } = useContext(AuthContext);
   const handleLogout = () => {
     logOutUser().then(() => {
@@ -20,9 +40,9 @@ export function NavBar() {
     });
   };
   const activeStyles =
-    "lg:border-b transition duration-300 ease-in-out px-3 py-2 border-c-primary text-c-black font-bold hover:bg-c-primary hover:text-[#fff] text-[15px] my-2 lg:my-0 mx-0 hover:rounded";
+    "lg:border-b transition duration-300 ease-in-out px-3 lg:py-2 border-c-primary font-bold hover:bg-c-primary hover:text-[#fff] text-[15px] my-2 lg:my-0 mx-0 hover:rounded";
   const inactiveStyles =
-    "px-3 py-2 font-medium border-y border-transparent   mx-1 text-c-black hover:font-black-800 rounded hover:bg-base-200  text-[15px] my-2 lg:my-0 mx-0";
+    "px-3 lg:py-2 font-medium border-y border-transparent   mx-1  hover:font-black-800 rounded hover:bg-base-200  text-[15px] my-2 lg:my-0 mx-0";
 
   const links = (
     <>
@@ -33,7 +53,7 @@ export function NavBar() {
         Home
       </NavLink>
       <NavLink
-        to="/tourist-spot"
+        to="/tourist-spots"
         className={({ isActive }) => (isActive ? activeStyles : inactiveStyles)}
       >
         All Tourist Spot
@@ -42,7 +62,7 @@ export function NavBar() {
       {user && (
         <>
           <NavLink
-            to="/add"
+            to="/add-tourist-spot"
             className={({ isActive }) =>
               isActive ? activeStyles : inactiveStyles
             }
@@ -70,42 +90,75 @@ export function NavBar() {
   }, []);
 
   const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
+    <ul className="mt-2 mb-4 flex flex-col lg:gap-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
       {links}
     </ul>
   );
 
+  const darkNav =
+    "sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 bg-neutral text-white border-none";
+  const lightNav =
+    "sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4  text-c-black";
   return (
-    <div className=" max-h-[768px] w-full overflow-hidden">
-      <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
-        <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography
-            as="a"
-            href="#"
-            className="text-c-primary mr-4 cursor-pointer font-bold text-2xl py-2"
-          >
-            <Link to='/'>Travellors</Link>
+    <div className="max-h-[768px] w-full overflow-hidden border-0 outline-none">
+      <Navbar className={theme === "light" ? lightNav : darkNav}>
+        <div className="flex items-center justify-between ">
+          <Typography className="text-c-primary mr-4 cursor-pointer font-bold text-2xl md:text-3xl py-3 md:py-0">
+            <Link to="/">Travellors</Link>
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
+            <label className="cursor-pointer grid place-items-center">
+              <input
+                onChange={handleToggle}
+                type="checkbox"
+                checked={theme === "dark" ? true : false}
+                className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
+              />
+              <svg
+                className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+              </svg>
+              <svg
+                className="col-start-2 row-start-1 stroke-base-100 fill-base-100"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </label>
             <div className="flex items-center gap-x-1">
               {user && (
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="  btn-circle avatar tooltip tooltip-left border"
-                  data-tip={user?.displayName}
-                >
-                  <div className="w-full rounded-full">
-                    <Link to="/profile">
+                <>
+                  <div id="user" className="btn-circle avatar">
+                    <div className="w-full rounded-full">
                       <img
                         className="w-full h-full"
                         alt="Profile Picture"
                         src={user?.photoURL}
                       />
-                    </Link>
+                    </div>
                   </div>
-                </div>
+                  <Tooltip anchorSelect="#user">{user?.displayName}</Tooltip>
+                </>
               )}
               {user ? (
                 <button
@@ -134,7 +187,7 @@ export function NavBar() {
             </div>
             <IconButton
               variant="text"
-              className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+              className="ml-auto h-6 w-6  hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
               ripple={false}
               onClick={() => setOpenNav(!openNav)}
             >
@@ -142,7 +195,9 @@ export function NavBar() {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
-                  className="h-6 w-6"
+                  className={
+                    theme === "dark" ? "h-6 w-6 text-white" : "h-6 w-6"
+                  }
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2}
@@ -156,7 +211,9 @@ export function NavBar() {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
+                  className={
+                    theme === "dark" ? "h-6 w-6 text-white" : "h-6 w-6"
+                  }
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={2}
@@ -176,7 +233,7 @@ export function NavBar() {
           <div className="flex items-center gap-x-1">
             {user ? (
               <button
-                className="btn bg-c-primary text-white md::text-[15px] font-bold"
+                className="btn bg-c-primary text-white md:text-[15px] font-bold"
                 onClick={handleLogout}
               >
                 Logout
