@@ -14,6 +14,8 @@ import {
   Spinner,
 } from "@material-tailwind/react";
 
+
+
 export function NavBar() {
   const [openNav, setOpenNav] = React.useState(false);
 
@@ -40,10 +42,12 @@ export function NavBar() {
       toast.success("Logged out successfully");
     });
   };
+
+  
   const activeStyles =
-    "lg:border-b transition duration-300 ease-in-out px-3 border-c-primary font-bold hover:bg-c-primary hover:text-[#fff] text-[15px] my-2 lg:my-0 mx-0 hover:rounded";
+    "lg:border-b transition duration-300 ease-in-out px-3 border-c-primary font-bold hover:bg-c-primary hover:text-[#fff] text-[15px] my-2 lg:my-0 mx-0 hover:rounded py-2";
   const inactiveStyles =
-    "px-3  font-medium border-y border-transparent   mx-1  hover:font-black-800 rounded hover:bg-base-200  text-[15px] my-2 lg:my-0 mx-0";
+    "px-3  font-medium border-y border-transparent   mx-1  hover:font-black-800 rounded hover:bg-base-200  text-[15px] my-2 lg:my-0 mx-0 py-2";
 
   const links = (
     <>
@@ -104,8 +108,8 @@ export function NavBar() {
     <div className="max-h-[768px] w-full overflow-hidden border-0 outline-none">
       <Navbar className={theme === "light" ? lightNav : darkNav}>
         <div className="flex items-center justify-between h-[40px] md:h-[50px]">
-          <Typography className="text-c-primary mr-4 cursor-pointer font-bold text-2xl md:text-3xl ">
-            <Link to="/">Travellors</Link>
+          <Typography className="text-c-primary mr-4 cursor-pointer font-bold text-[28px] md:text-3xl ">
+            <Link to="/">Travelors</Link>
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
