@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
+import { Input } from "@material-tailwind/react";
 
 const Register = () => {
   const { createUser, updateUserProfile, setReload } = useContext(AuthContext);
@@ -34,7 +35,7 @@ const Register = () => {
         toast.success("Account created succesfully");
         updateUserProfile(name, photo)
           .then(() => {
-            setReload(true)
+            setReload(true);
             navigate(location?.state ? location.state : "/");
           })
           .catch((error) => {
@@ -44,77 +45,66 @@ const Register = () => {
       .catch((error) => {
         toast.error(error.message.split("(")[1].split(")")[0]);
       });
-};
+  };
 
   return (
     <section className=" lg:pt-6 flex py-[60px] items-center bg-cool">
       <Helmet>
-          <title>Travellors | Register</title>
-        </Helmet>
-      <div className="flex justify-center w-5/6  md:w-fit  mx-auto bg-base-100 items-center mt-6  rounded-xl">
+        <title>Travellors | Register</title>
+      </Helmet>
+      <div className="flex justify-center w-[90%]  md:w-fit  mx-auto bg-base-100 items-center mt-6  rounded-xl">
         <div className="flex flex-col justify-center text-center rounded-sm w-full  md:w-[400px]  lg:text-left p-0 flex-1">
-          <div className="m-0 p-4 md:p-8 space-y-3 rounded-sm mx-auto lg:w-full lg:max-w-[400px] w-[90%]">
+          <div className="m-0 p-4 md:p-8 space-y-3 rounded-sm mx-auto lg:w-full lg:max-w-[400px] w-[93%] py-7 md:py-10">
             <h1 className="text-3xl font-bold text-center pb-4">
               Register Here
             </h1>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="flex flex-col">
                 <div className="relative w-full min-w-[200px] h-10 mb-2">
-                  <input
+                  <Input
                     type="text"
                     autoComplete="current-name"
-                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-teal-500"
-                    placeholder=" "
                     {...register("name", { required: "Name is required" })}
-                  />
-                  <label className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-blue-gray-400 peer-focus:text-teal-500 before:border-blue-gray-200 peer-focus:before:!border-teal-500 after:border-blue-gray-200 peer-focus:after:!border-teal-500">
-                    Name
-                  </label>
+                    label="Name"
+                    color="teal"
+                  ></Input>
                 </div>
                 <p className="pb-2 text-left text-red-500">
-                  {errors.name?.message} 
+                  {errors.name?.message}
                 </p>
                 <div className="relative w-full min-w-[200px] h-10 mb-2">
-                  <input
-                  autoComplete="current-email"
+                  <Input
                     type="email"
-                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-teal-500"
-                    placeholder=" "
-                    {...register("email", {
-                      required: "Email is required",
-                    })}
+                    autoComplete="current-email"
+                    {...register("email", { required: "Email is required" })}
+                    color="teal"
+                    label="Email"
                   />
-                  <label className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-blue-gray-400 peer-focus:text-teal-500 before:border-blue-gray-200 peer-focus:before:!border-teal-500 after:border-blue-gray-200 peer-focus:after:!border-teal-500">
-                    Email
-                  </label>
                 </div>
                 <p className="pb-2 text-left text-red-500">
                   {errors.email?.message}
                 </p>
                 {/* // photo */}
                 <div className="relative w-full min-w-[200px] h-10 mb-2">
-                  <input
-                  autoComplete="current-photo"
+                  <Input
+                    autoComplete="current-photo"
                     type="text"
-                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-teal-500"
-                    placeholder=" "
+                    label="Photo URL"
+                    color="teal"
                     {...register("photo", {
                       required: "Photo URL is required",
                     })}
-                  />
-                  <label className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-blue-gray-400 peer-focus:text-teal-500 before:border-blue-gray-200 peer-focus:before:!border-teal-500 after:border-blue-gray-200 peer-focus:after:!border-teal-500">
-                    Photo URL
-                  </label>
+                  ></Input>
                 </div>
                 <p className="pb-2 text-left text-red-500">
                   {errors.photo?.message}
                 </p>
                 <div className="mt-1 relative w-full min-w-[200px] h-10">
-                  <input
+                  <Input
                     type={showPassword ? "text" : "password"}
                     autoComplete="current-password"
-                    className="peer w-full h-full bg-transparent text-blue-gray-700 font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-blue-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-blue-gray-200 focus:border-teal-500"
-                    placeholder=" "
+                    label="Password"
+                    color="teal"
                     {...register("password", {
                       required: "Password is Required",
                       pattern: {
@@ -123,7 +113,7 @@ const Register = () => {
                           "Password must contain at least one lowercase letter, one uppercase letter, and be at least 6 characters long",
                       },
                     })}
-                  />
+                  ></Input>
 
                   <p
                     onClick={handleViewPassword}
@@ -131,10 +121,6 @@ const Register = () => {
                   >
                     {showPassword ? <VscEyeClosed /> : <VscEye />}
                   </p>
-
-                  <label className="flex w-full h-full select-none pointer-events-none absolute left-0 font-normal !overflow-visible truncate peer-placeholder-shown:text-blue-gray-500 leading-tight peer-focus:leading-tight peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500 transition-all -top-1.5 peer-placeholder-shown:text-sm text-[11px] peer-focus:text-[11px] before:content[' '] before:block before:box-border before:w-2.5 before:h-1.5 before:mt-[6.5px] before:mr-1 peer-placeholder-shown:before:border-transparent before:rounded-tl-md before:border-t peer-focus:before:border-t-2 before:border-l peer-focus:before:border-l-2 before:pointer-events-none before:transition-all peer-disabled:before:border-transparent after:content[' '] after:block after:flex-grow after:box-border after:w-2.5 after:h-1.5 after:mt-[6.5px] after:ml-1 peer-placeholder-shown:after:border-transparent after:rounded-tr-md after:border-t peer-focus:after:border-t-2 after:border-r peer-focus:after:border-r-2 after:pointer-events-none after:transition-all peer-disabled:after:border-transparent peer-placeholder-shown:leading-[3.75] text-blue-gray-400 peer-focus:text-teal-500 before:border-blue-gray-200 peer-focus:before:!border-teal-500 after:border-blue-gray-200 peer-focus:after:!border-teal-500">
-                    Password
-                  </label>
                 </div>
                 <p className="pt-2 text-left text-red-500">
                   {errors.password?.message}
