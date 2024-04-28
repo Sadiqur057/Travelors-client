@@ -1,9 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyTouristSpotCard from "./MyTouristSpotCard";
+import { Spinner } from "@material-tailwind/react";
 
 const MyTouristSpots = () => {
   const [myTouristSpots, setMyTouristSpots] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
   const { user, loading } = useContext(AuthContext);
   const email = user?.email;
   useEffect(() => {
@@ -12,12 +14,17 @@ const MyTouristSpots = () => {
       .then((data) => {
         console.log(data);
         setMyTouristSpots(data);
+        setDataLoading(false)
       });
   }, [email]);
 
-  if (loading) {
-    return <h1>Loading</h1>;
-  }
+if (dataLoading || loading) {
+  return (
+    <div className="min-h-[calc(100vh-80px)] w-full flex justify-center items-center">
+      <Spinner className="h-12 w-12" color="teal" />
+    </div>
+  );
+}
 
   return (
     <section className="text-gray-600 body-font">
