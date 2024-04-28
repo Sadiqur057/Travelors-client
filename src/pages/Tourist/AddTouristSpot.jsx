@@ -98,7 +98,7 @@ const AddTouristSpot = () => {
   };
 
   return (
-    <div className="bg-gray-400 py-10">
+    <div className="bg-cool py-10">
       <section className="p-6 bg-white w-[90%] max-w-4xl mx-auto rounded-md">
         <div className="space-y-2 col-span-full lg:col-span-1">
           <p className="text-center font-bold text-2xl md:text-3xl py-8">

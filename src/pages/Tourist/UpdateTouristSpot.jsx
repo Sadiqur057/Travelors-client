@@ -1,6 +1,6 @@
 import { Select, Option, Input } from "@material-tailwind/react";
 import Swal from "sweetalert2";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateTouristSpot = () => {
@@ -129,13 +129,15 @@ const UpdateTouristSpot = () => {
       });
   };
   return (
-    <div className="bg-base-200">
-      <div className="max-w-3xl mx-auto bg-white">
+    <div className="bg-cool py-10 px-4 md:px-10 ">
+      
+      <div className="max-w-3xl mx-auto bg-white p-4 md:p-4 rounded-xl">
+      <h1 className="text-center text-2xl md:text-3xl font-semibold pt-4 md:pt-10  pb-4 md:pb-6">Update Information for {spot_name}</h1>
         <form
           onSubmit={handleAddSpot}
           className="container flex flex-col mx-auto space-y-12"
         >
-          <fieldset className=" gap-6 rounded-md shadow-sm p-2 md:p-6 lg:p-10">
+          <fieldset className=" gap-6 rounded-md  p-2 md:p-6 lg:p-10 ">
             <div className="grid grid-cols-6 gap-4 col-span-full ">
               <div className="col-span-full sm:col-span-3">
                 <Input
