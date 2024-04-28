@@ -1,9 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import TouristSpotCard from "../shared/TouristSpotCard";
-import { Select, Option } from "@material-tailwind/react";
-import { useState } from "react";
+import { Select, Option, Spinner } from "@material-tailwind/react";
+import { useEffect, useState } from "react";
 
 const AllTouristSpots = () => {
+  const [loading, setLoading] = useState(true)
   const allTouristSpots = useLoaderData();
   console.log(allTouristSpots);
   const [sortedData, setSortedData] = useState(allTouristSpots)
@@ -35,6 +36,20 @@ const AllTouristSpots = () => {
       value: "duration",
     },
   ];
+
+  useEffect(()=>{
+    if(allTouristSpots){
+      setLoading(false)
+    }
+  },[allTouristSpots])
+
+  if (loading) {
+    return (
+      <div className="min-h-[calc(100vh-80px)] w-full flex justify-center items-center">
+        <Spinner className="h-12 w-12" color="teal" />
+      </div>
+    );
+  }
 
 
   return (
