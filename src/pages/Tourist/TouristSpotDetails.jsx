@@ -27,7 +27,7 @@ const TouristSpotDetails = () => {
 
   if (loading) {
     return (
-      <div className="mt-10 h-32 w-full flex justify-center items-center">
+      <div className="min-h-[calc(100vh-80px)] w-full flex justify-center items-center">
         <Spinner className="h-12 w-12" color="teal" />
       </div>
     );
