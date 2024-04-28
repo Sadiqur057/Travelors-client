@@ -1,11 +1,11 @@
-import PropTypes from "prop-types";
 import { useLoaderData } from "react-router-dom";
+import { Spinner } from "@material-tailwind/react";
+import { useEffect, useState } from "react";
 
 const TouristSpotDetails = () => {
-  // const touristSpotDetails =
+  const [loading, setLoading] = useState(true);
   const touristSpotData = useLoaderData();
   const {
-    _id,
     user,
     spot_name,
     country,
@@ -18,6 +18,21 @@ const TouristSpotDetails = () => {
     visitors,
     userPhoto,
   } = touristSpotData || {};
+
+  useEffect(() => {
+    if (touristSpotData) {
+      setLoading(false);
+    }
+  }, [touristSpotData]);
+
+  if (loading) {
+    return (
+      <div className="mt-10 h-32 w-full flex justify-center items-center">
+        <Spinner className="h-12 w-12" color="teal" />
+      </div>
+    );
+  }
+
   return (
     <section className="body-font mt-6 md:mt-10">
       <div className="w-[90%] md:w-5/6 mx-auto">
@@ -27,7 +42,6 @@ const TouristSpotDetails = () => {
             className="w-full object-cover max-h-[440px] lg:rounded"
           />
         </div>
-
         <div className="flex flex-col md:flex-row lg:space-x-12">
           <div className="px-4 lg:px-0 mt-4 md:mt-6  text-lg leading-relaxed w-full lg:w-3/4">
             <h1 className="font-bold text-3xl mb-3">{spot_name}</h1>
@@ -64,7 +78,9 @@ const TouristSpotDetails = () => {
               </table>
             </div>
             <div className="flex my-3 justify-end">
-              <button className="py-2 px-4 bg-c-primary text-sm font-semibold text-white rounded-md">Reserve Now</button>
+              <button className="py-2 px-4 bg-c-primary text-sm font-semibold text-white rounded-md">
+                Reserve Now
+              </button>
             </div>
           </div>
 
@@ -76,10 +92,7 @@ const TouristSpotDetails = () => {
                   className="h-10 w-10 rounded-full mr-2 object-cover"
                 />
                 <div>
-                  <p className="font-semibold  text-sm">
-                    {" "}
-                    {user}{" "}
-                  </p>
+                  <p className="font-semibold  text-sm"> {user} </p>
                   <p className="font-semibold text-gray-600 text-xs">
                     {" "}
                     Author{" "}
