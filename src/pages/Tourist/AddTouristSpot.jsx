@@ -99,7 +99,7 @@ const AddTouristSpot = () => {
 
   return (
     <div className="bg-cool py-10">
-      <section className="p-6 bg-white w-[90%] max-w-4xl mx-auto rounded-md">
+      <section className="p-6 bg-base-100 w-[90%] max-w-4xl mx-auto rounded-md">
         <div className="space-y-2 col-span-full lg:col-span-1">
           <p className="text-center font-bold text-2xl md:text-3xl py-8">
             Add Your Favourite Tourist Spot
@@ -107,11 +107,11 @@ const AddTouristSpot = () => {
         </div>
         <form
           onSubmit={handleAddSpot}
-          className="container flex flex-col mx-auto space-y-12"
+          className="container flex flex-col mx-auto space-y-12 "
         >
           <fieldset className=" gap-6 rounded-md shadow-sm p-2 md:p-6 lg:p-10">
             <div className="grid grid-cols-6 gap-4 col-span-full ">
-              <div className="col-span-full sm:col-span-3">
+              <div className="col-span-full sm:col-span-3 ">
                 <Input
                   label="Username"
                   color="teal"

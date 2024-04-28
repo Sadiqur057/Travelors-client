@@ -131,7 +131,7 @@ const UpdateTouristSpot = () => {
   return (
     <div className="bg-cool py-10 px-4 md:px-10 ">
       
-      <div className="max-w-3xl mx-auto bg-white p-4 md:p-4 rounded-xl">
+      <div className="max-w-3xl mx-auto bg-base-100 p-4 md:p-4 rounded-xl">
       <h1 className="text-center text-2xl md:text-3xl font-semibold pt-4 md:pt-10  pb-4 md:pb-6">Update Information for {spot_name}</h1>
         <form
           onSubmit={handleAddSpot}
