@@ -3,26 +3,24 @@ import slider2 from "../../assets/images/slider/slider-2.jpg";
 import slider3 from "../../assets/images/slider/slider-3.jpg";
 import slider4 from "../../assets/images/slider/slider-4.jpg";
 import slider5 from "../../assets/images/slider/slider-5.jpg";
+import slider6 from "../../assets/images/slider/slider-6.jpg";
 
 import { Fade } from "react-awesome-reveal";
-
 import { FaInstagram, FaFacebookSquare } from "react-icons/fa";
 import { FaSquareTwitter } from "react-icons/fa6";
-
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/thumbs";
-// import "swiper/css/free-mode";
-
 import { Carousel, Button, Typography } from "@material-tailwind/react";
-// autoplay loop
+import { Link } from "react-router-dom";
 
 export function CarouselCustomNavigation() {
+  window.scrollTo(0, 0);
   return (
     <Carousel
       autoplay
-      loop
-      className="h-[calc(100vh-130px)]  md:h-[calc(100vh-68px)] "
+      autoplayDelay = {3000}
+      loop 
+      prevArrow={false}
+      nextArrow={false}
+      className="h-[calc(100vh-130px)]  md:h-[calc(100vh-84px)] "
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2 ">
           {new Array(length).fill("").map((_, i) => (
@@ -39,27 +37,27 @@ export function CarouselCustomNavigation() {
     >
       <div className="relative h-full w-full">
         <img
-          src={slider1}
+          src={slider4}
           alt="image 1"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
-          <div className=" grid md:grid-cols-6 mx-auto w-5/6 gap-10 md:gap-14 lg:gap-20 px-2 ">
-            <div className="mx-auto md:col-span-5 px-6">
+        <div className="absolute inset-0 grid h-full w-full items-center bg-black/50">
+          <div className=" grid md:grid-cols-6 mx-auto w-5/6 gap-10 md:gap-14 lg:gap-20 md:px-2 ">
+            <div className="mx-auto md:col-span-5 md:px-6">
               <Fade direction="down">
                 <Typography
                   variant="h1"
                   color="white"
-                  className="mb-4 text-4xl md:text-4xl lg:text-5xl"
+                  className="mb-7 text-3xl md:text-4xl lg:text-5xl"
                 >
-                  The Beauty of Naturess
+                  The Beauty of Naturessss
                 </Typography>
               </Fade>
               <Fade>
                 <Typography
                   variant="lead"
                   color="white"
-                  className="mb-12 opacity-80 leading-snug max-w-[560px]"
+                  className="text-base md:text-lg mb-8 opacity-80 leading-snug max-w-[560px]"
                 >
                   It is not so much for its beauty that the forest makes a claim
                   upon men&apos;s hearts, as for that subtle something, that
@@ -68,12 +66,9 @@ export function CarouselCustomNavigation() {
               </Fade>
               <Fade direction="up">
                 <div className="flex gap-2">
-                  <Button size="lg" color="white">
-                    Explore
-                  </Button>
-                  <Button size="lg" color="white" variant="text">
-                    Gallery
-                  </Button>
+                  <Link to='/tourist-spots'>
+                  <Button className="text-white bg-c-primary">Explore</Button>
+                  </Link>
                 </div>
               </Fade>
             </div>
@@ -93,6 +88,8 @@ export function CarouselCustomNavigation() {
           </div>
         </div>
       </div>
+
+
     </Carousel>
   );
 }

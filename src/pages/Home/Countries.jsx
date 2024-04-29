@@ -3,13 +3,13 @@ import Country from "./Country";
 import { Spinner } from "@material-tailwind/react";
 
 const Countries = () => {
+  window.scrollTo(0, 0);
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch("https://travelors-server.vercel.app/countries")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCountries(data);
         setLoading(false)
       });
@@ -27,13 +27,11 @@ const Countries = () => {
     <section className=" body-font w-[90%] md:w-5/6 mx-auto ">
       <div className="container py-14 mx-auto">
         <div className="flex flex-col text-center w-full mb-6 md:mb-10">
-          <h1 className="sm:text-3xl text-2xl font-semibold title-font mb-4 ">
-            Master Cleanse Reliac Heirloom
+          <h1 className="md:text-3xl text-[28px] font-semibold title-font mb-5 ">
+          Countries & Attractions
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-            gentrify, subway tile poke farm-to-table. Franzen you probably
-            havent heard of them man bun deep jianbing selfies heirloom.
+          Click on country images to unlock a world of unique tourist spots and attractions waiting to be explored. From iconic landmarks to hidden gems, embark on a virtual journey to your next adventure.
           </p>
         </div>
         <div className="md:grid grid-cols-7 grid-rows-12 gap-2 md:max-h-[700px] lg:max-h-[600px] min-h-[600px] space-y-3 md:space-y-0">
