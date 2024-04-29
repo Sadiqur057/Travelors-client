@@ -9,7 +9,6 @@ const CountrySpecificSpots = () => {
   const [touristSpots, setTouristSpots] = useState([]);
   const [countryInformation, setCountryInformation] = useState([]);
   const country = useParams();
-  window.scrollTo(0, 0);
   useEffect(() => {
     fetch(`https://travelors-server.vercel.app/countries/${country?.name}`)
       .then((res) => res.json())
@@ -17,6 +16,7 @@ const CountrySpecificSpots = () => {
         console.log(data);
         setTouristSpots(data);
         setLoading(false);
+        window.scrollTo(0, 0);
       });
   }, [country?.name]);
 

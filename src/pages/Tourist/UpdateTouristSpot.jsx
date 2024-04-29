@@ -13,6 +13,7 @@ const UpdateTouristSpot = () => {
       .then((data) => {
         console.log(data);
         setTouristPost(data);
+        window.scrollTo(0, 0);
       });
   }, [id]);
 

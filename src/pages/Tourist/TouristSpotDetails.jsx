@@ -22,6 +22,7 @@ const TouristSpotDetails = () => {
   useEffect(() => {
     if (touristSpotData) {
       setLoading(false);
+      window.scrollTo(0, 0);
     }
   }, [touristSpotData]);
 

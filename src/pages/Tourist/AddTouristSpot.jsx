@@ -4,6 +4,7 @@ import { Select, Option, Input, Textarea } from "@material-tailwind/react";
 import Swal from "sweetalert2";
 
 const AddTouristSpot = () => {
+  window.scrollTo(0, 0);
   const { user } = useContext(AuthContext);
   console.log(user?.displayName);
   const userPhoto = user?.photoURL;
