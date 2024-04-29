@@ -41,9 +41,8 @@ const CountrySpecificSpots = () => {
         <div className="flex flex-wrap w-full mb-20 items-center">
           <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
             <h1 className="sm:text-3xl text-2xl font-medium  mb-2 ">
-              {countryInformation.name}{" "}
+              {countryInformation.name}
               <span className="text-base">
-                {" "}
                 Tourist spot available : {touristSpots.length}
               </span>
             </h1>
