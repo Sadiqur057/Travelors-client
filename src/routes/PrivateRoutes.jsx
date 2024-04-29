@@ -6,7 +6,6 @@ import { Spinner } from "@material-tailwind/react";
 
 const PrivateRoutes = ({ children }) => {
   const location = useLocation();
-  console.log(location.pathname);
   const { user, loading } = useContext(AuthContext);
   if (loading) {
     return (
