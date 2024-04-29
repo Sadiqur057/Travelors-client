@@ -21,7 +21,6 @@ export function NavBar() {
 
   const prevTheme = localStorage.getItem("theme") || "light";
   const [theme, setTheme] = useState(prevTheme);
-  console.log(theme);
 
   const handleToggle = (e) => {
     if (e.target.checked) {

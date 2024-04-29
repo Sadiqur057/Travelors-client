@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Country = ({ country }) => {
-  console.log(country);
   const { name, image, description } = country || {};
   return (
     <Link to={`/countries/${name}`}>

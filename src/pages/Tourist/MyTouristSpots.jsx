@@ -12,7 +12,6 @@ const MyTouristSpots = () => {
     fetch(`https://travelors-server.vercel.app/tourist-spots/${email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setMyTouristSpots(data);
         setDataLoading(false);
       });

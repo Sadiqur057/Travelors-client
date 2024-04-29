@@ -11,7 +11,6 @@ const UpdateTouristSpot = () => {
     fetch(`https://travelors-server.vercel.app/details/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setTouristPost(data);
         window.scrollTo(0, 0);
       });
@@ -96,7 +95,6 @@ const UpdateTouristSpot = () => {
       image,
       _id,
     };
-    console.log(seasonality,country)
 
     fetch(`https://travelors-server.vercel.app/update/${_id}`, {
       method: "PUT",
@@ -107,7 +105,6 @@ const UpdateTouristSpot = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",

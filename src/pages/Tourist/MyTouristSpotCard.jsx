@@ -35,7 +35,6 @@ const MyTouristSpotCard = ({
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount > 0) {
               const remainingTouristSpots = myTouristSpots.filter(
                 (touristSpot) => touristSpot._id !== id

@@ -41,7 +41,7 @@ const Register = () => {
         body: JSON.stringify(userDetails),
       })
         .then((res) => res.json())
-        .then((data) => console.log(data));
+        .then();
 
       updateUserProfile(name, photo)
         .then(() => {

@@ -6,11 +6,9 @@ import { useEffect, useState } from "react";
 const AllTouristSpots = () => {
   const [loading, setLoading] = useState(true)
   const allTouristSpots = useLoaderData();
-  console.log(allTouristSpots);
   const [sortedData, setSortedData] = useState(allTouristSpots)
 
   const handleSortOptions = (value) => {
-    console.log(value);
     if(value==="cost"){
       const newSortedDate = [...allTouristSpots].sort((a,b)=>{
         return parseInt(a.cost) - parseInt(b.cost)

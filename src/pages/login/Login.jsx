@@ -25,8 +25,6 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  // accessing auth context
-  console.log(location?.state);
   const { loginUser, googleLogin, githubLogin, setReload } = useContext(AuthContext);
 
   const {
@@ -39,13 +37,11 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((userCredential) => {
-        console.log(userCredential);
         const user = userCredential.user;
         const name = user.displayName;
         const email = user.email;
         const photo = user.photoURL;
         const userDetails = { name, email, photo };
-        console.log(userCredential)
         setReload(true)
         toast.success("Login Success");
         fetch("https://travelors-server.vercel.app/users", {
@@ -58,7 +54,7 @@ const Login = () => {
           .then()
           .then();
         navigate(location?.state ? location.state : "/");
-        console.log(location?.state);
+
       })
       .catch((error) => {
         toast.error(error);
@@ -68,7 +64,6 @@ const Login = () => {
   const handleGithubLogin = () => {
     githubLogin()
       .then((userCredential) => {
-        console.log(userCredential);
         const user = userCredential.user;
         const name = user.displayName;
         const email = user.email || "Not Found";

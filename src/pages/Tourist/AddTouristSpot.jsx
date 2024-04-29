@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 const AddTouristSpot = () => {
   window.scrollTo(0, 0);
   const { user } = useContext(AuthContext);
-  console.log(user?.displayName);
   const userPhoto = user?.photoURL;
   const [seasonalityValue, setSeasonalityValue] = useState("");
   const [countryValue, setCountryValue] = useState("");
@@ -75,7 +74,6 @@ const AddTouristSpot = () => {
       image,
       userPhoto,
     };
-    console.log(touristSpotDetails);
 
     fetch("https://travelors-server.vercel.app/tourist-spots", {
       method: "POST",
@@ -86,7 +84,6 @@ const AddTouristSpot = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
