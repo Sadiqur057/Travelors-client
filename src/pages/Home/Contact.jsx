@@ -3,7 +3,6 @@ import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 const Contact = () => {
-  window.scrollTo(0, 0);
   return (
     <section className="w-[90%] md:w-4/5 mx-auto  py-6 dark:bg-gray-100 dark:text-gray-900">
       <div className="grid max-w-6xl grid-cols-1  mx-auto  lg:grid-cols-11 xl:grid-cols-12 items-center mb-8 md:mb-14 gap-1 md:gap-6 ">

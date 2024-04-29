@@ -1,11 +1,14 @@
+import { Spinner } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { FaRegComments, FaRegFlag } from "react-icons/fa";
 import { GiIsland } from "react-icons/gi";
 import { LuUsers2 } from "react-icons/lu";
 
 const Statistics = () => {
-  window.scrollTo(0, 0);
   const [spotCounts, setSpotCounts] = useState(0);
+  const [countryLoading, seCountryLoading] = useState(true);
+  const [userLoading, setUserLoading] = useState(true);
+  const [spotLoading, setSpotsLoading] = useState(true);
   const [countryCounts, setCountryCounts] = useState(0);
   const [userCounts, setUserCounts] = useState(0);
   useEffect(() => {
@@ -13,6 +16,7 @@ const Statistics = () => {
       .then((res) => res.json())
       .then((data) => {
         setSpotCounts(data.count);
+        setSpotsLoading(false);
       });
   }, []);
 
@@ -21,6 +25,7 @@ const Statistics = () => {
       .then((res) => res.json())
       .then((data) => {
         setUserCounts(data.count);
+        setUserLoading(false);
       });
   }, []);
 
@@ -29,8 +34,18 @@ const Statistics = () => {
       .then((res) => res.json())
       .then((data) => {
         setCountryCounts(data.count);
+        seCountryLoading(false);
       });
   }, []);
+
+  window.scrollTo(0, 0);
+  if (spotLoading || countryLoading || userLoading) {
+    return (
+      <div className="min-h-[calc(100vh-80px)] w-full flex justify-center items-center">
+        <Spinner className="h-12 w-12" color="teal" />
+      </div>
+    );
+  }
   return (
     <section className="body-font">
       <div className="container px-5 py-8 md:py-14 mx-auto">

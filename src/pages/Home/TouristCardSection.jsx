@@ -3,7 +3,6 @@ import TouristSpotCard from "../shared/TouristSpotCard";
 import { Spinner } from "@material-tailwind/react";
 
 const TouristCardSection = () => {
-  window.scrollTo(0, 0);
   const [loading, setLoading] = useState(true);
   const [touristSpots, setTouristSpots] = useState([]);
   useEffect(() => {

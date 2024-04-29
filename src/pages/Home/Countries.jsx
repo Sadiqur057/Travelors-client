@@ -3,7 +3,6 @@ import Country from "./Country";
 import { Spinner } from "@material-tailwind/react";
 
 const Countries = () => {
-  window.scrollTo(0, 0);
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
