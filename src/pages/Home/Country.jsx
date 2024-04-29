@@ -24,7 +24,7 @@ const Country = ({ country }) => {
             </div>
           </div>
           <div className="relative  w-full h-full country-name text-white top-0  min-h-[200px] md:text-lg font-medium">
-            <p className="py-[6px] px-3 w-fit bg-c-primary rounded-t-xl rounded-r-md">{name}</p>
+            <p className="py-[6px] px-3 w-fit bg-c-primary rounded-t-xl rounded-tr-none rounded-br-md">{name}</p>
           </div>
         </div>
       </div>
