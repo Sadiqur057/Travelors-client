@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-cool{
+  background-image: url('./assets/images/bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.country-box:hover .country-name{
+  display: none;
+}
+.country-box:hover .country-details{
+  display: block;
+}
