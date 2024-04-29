@@ -27,7 +27,7 @@ const MyTouristSpots = () => {
   }
 
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-gray-600 body-font pb-6 md:pb-10">
       <div className="container px-5 py-8 mx-auto">
         <div className="flex flex-wrap w-full mb-20 items-center">
           <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
@@ -37,10 +37,7 @@ const MyTouristSpots = () => {
             <div className="h-1 w-20 bg-c-primary rounded"></div>
           </div>
           <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-            Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-            gentrify, subway tile poke farm-to-table. Franzen you probably
-            havent heard of them man bun deep jianbing selfies heirloom prism
-            food truck ugh squid celiac humblebrag.
+          Find and Manage Your Favorite Tourist Spots! Explore, Edit, or Remove Your Handpicked Tourist Spots with Ease on Our Intuitive Platform. From Majestic Mountains to Serene Beaches, Tailor Your Travel Experience to Perfection. Start Planning Your Next Escape Today!
           </p>
         </div>
         <div className="flex flex-col">
@@ -49,20 +46,20 @@ const MyTouristSpots = () => {
               <div className="border rounded-lg overflow-hidden dark:border-neutral-700">
                 <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700 overflow-auto">
                   <thead className="bg-gray-50 dark:bg-neutral-700">
-                    <tr className="text-left text-xs  font-medium">
-                      <th scope="col" className=" px-2 md:px-6 py-3">
+                    <tr className="text-left text-xs md:text-sm  font-medium">
+                      <th scope="col" className=" px-2 md:px-6 py-5">
                         Spot Name
                       </th>
-                      <th scope="col" className="hidden md:block px-2 md:px-6 py-3">
+                      <th scope="col" className="hidden md:block px-2 md:px-6 py-5">
                         Country
                       </th>
-                      <th scope="col" className=" px-2 md:px-6 py-3">
+                      <th scope="col" className=" px-2 md:px-6 py-5">
                         Cost
                       </th>
-                      <th scope="col" className=" px-2 md:px-6 py-3">
+                      <th scope="col" className=" px-2 md:px-6 py-5">
                         Duration
                       </th>
-                      <th scope="col" className=" px-2 md:px-6 py-3">
+                      <th scope="col" className=" px-2 md:px-6 py-5">
                         
                       </th>
                     </tr>
