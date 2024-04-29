@@ -16,7 +16,6 @@ const PrivateRoutes = ({ children }) => {
     );
   }
   if (user) {
-    window.scrollTo(0, 0);
     return children;
   }
   return <Navigate to="/login" state={location?.pathname}></Navigate>;
