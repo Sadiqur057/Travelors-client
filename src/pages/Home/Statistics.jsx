@@ -64,7 +64,7 @@ const Statistics = () => {
           <div className="p-4 col-span-2 md:col-span-1 w-full">
             <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
               <GiIsland className="text-4xl text-c-primary flex w-full justify-center mb-3" />
-              <h2 className="title-font font-medium text-3xl text-gray-900">
+              <h2 className="title-font font-medium text-3xl ">
                 {spotCounts}
               </h2>
               <p className="leading-relaxed">Tourist Spots</p>
@@ -73,7 +73,7 @@ const Statistics = () => {
           <div className="p-4 col-span-2 md:col-span-1 w-full">
             <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
               <LuUsers2 className="text-4xl text-c-primary flex w-full justify-center mb-3" />
-              <h2 className="title-font font-medium text-3xl text-gray-900">
+              <h2 className="title-font font-medium text-3xl ">
                 {userCounts}
               </h2>
               <p className="leading-relaxed">Users</p>
@@ -82,7 +82,7 @@ const Statistics = () => {
           <div className="p-4 col-span-2 md:col-span-1 w-full">
             <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
               <FaRegFlag className="text-4xl text-c-primary flex w-full justify-center mb-3" />
-              <h2 className="title-font font-medium text-3xl text-gray-900">
+              <h2 className="title-font font-medium text-3xl ">
                 {countryCounts}
               </h2>
               <p className="leading-relaxed">Countries</p>
@@ -91,7 +91,7 @@ const Statistics = () => {
           <div className="p-4 col-span-2 md:col-span-1 w-full">
             <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
               <FaRegComments className="text-4xl text-c-primary flex w-full justify-center mb-3" />
-              <h2 className="title-font font-medium text-3xl text-gray-900">
+              <h2 className="title-font font-medium text-3xl ">
                 46
               </h2>
               <p className="leading-relaxed">Reviews</p>
