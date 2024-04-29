@@ -63,10 +63,7 @@ const AllTouristSpots = () => {
         </div>
 
         <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
-          Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
-          gentrify, subway tile poke farm-to-table. Franzen you probably havent
-          heard of them man bun deep jianbing selfies heirloom prism food truck
-          ugh squid celiac humblebrag.
+        Discover the Worlds Wonders! Browse Through a Collection of Tourist Spots Added by Our Global Community of Travel Enthusiasts. Uncover a Tapestry of Experiences Waiting to Be Explored. Start Your Journey of Discovery Today!.
         </p>
       </div>
       <div className="flex justify-center mb-10">
