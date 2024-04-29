@@ -27,7 +27,7 @@ const Login = () => {
 
   // accessing auth context
   console.log(location?.state);
-  const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
+  const { loginUser, googleLogin, githubLogin, setReload } = useContext(AuthContext);
 
   const {
     register,
@@ -45,6 +45,8 @@ const Login = () => {
         const email = user.email;
         const photo = user.photoURL;
         const userDetails = { name, email, photo };
+        console.log(userCredential)
+        setReload(true)
         toast.success("Login Success");
         fetch("https://travelors-server.vercel.app/users", {
           method: "POST",
@@ -73,6 +75,7 @@ const Login = () => {
         const photo = user.photoURL;
         const userDetails = { name, email, photo };
         toast.success("Login Success");
+        setReload(true)
         fetch("https://travelors-server.vercel.app/users", {
           method: "POST",
           headers: {
