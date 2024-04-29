@@ -12,7 +12,39 @@ import { Carousel, Button, Typography } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 
 export function CarouselCustomNavigation() {
-  const images = [slider1, slider2, slider3, slider4, slider5, slider6];
+  const sliderData = [
+    {
+    "title": "Explore Southeast Asia",
+    "description": "Discover the hidden gems of Southeast Asia, from the bustling streets of Bangladesh to the tranquil beaches of Indonesia. Experience the diversity and vibrancy of these beautiful countries.",
+    "image": slider1
+  },
+  {
+    "title": "Your Travel Diary",
+    "description": "Log in and start your journey with us. Add your favorite spots and create your personalized travel diary. Keep track of your adventures and relive your memories anytime.",
+    "image": slider2
+  },
+  {
+    "title": "Authentic Experiences",
+    "description": "GGet a taste of local cultures from Cambodia to Vietnam. Experience authentic Southeast Asia with us. Immerse yourself in the traditions and lifestyles of the locals.",
+    "image": slider3
+  },
+  {
+    "title": "Easy and Secure",
+    "description": "With our secure Firebase authentication, your travel plans are safe and easy to manage. Rest assured, your information and travel plans are protected with us.",
+    "image": slider4
+  },
+  {
+    "title": "Your Journey, Your Rules",
+    "description": " AAdd, update, or delete your favorite spots anytime. You are in control of your travel itinerary. Customize your journey according to your preferences and interests.",
+    "image": slider5
+  },
+  {
+    "title": "Your Travel Companion",
+    "description": "Join Travelors today and let us guide you through the enchanting landscapes of Malaysia and beyond. We are here to make your travel dreams come true.",
+    "image": slider6
+  }
+]
+
   return (
     <Carousel
       autoplay
@@ -35,10 +67,10 @@ export function CarouselCustomNavigation() {
         </div>
       )}
     >
-      {images.map((image) => (
-        <div key={image} className="relative h-full w-full">
+      {sliderData.map((data) => (
+        <div key={data?.title} className="relative h-full w-full">
           <img
-            src={image}
+            src={data?.image}
             alt="image 1"
             className="h-full w-full object-cover"
           />
@@ -51,7 +83,7 @@ export function CarouselCustomNavigation() {
                     color="white"
                     className="mb-7 text-3xl md:text-4xl lg:text-5xl"
                   >
-                    The Beauty of Naturessss
+                    {data?.title}
                   </Typography>
                 </Fade>
                 <Fade>
@@ -60,9 +92,7 @@ export function CarouselCustomNavigation() {
                     color="white"
                     className="text-lg md:text-xl mb-8 opacity-80 leading-snug max-w-[560px]"
                   >
-                    It is not so much for its beauty that the forest makes a
-                    claim upon men&apos;s hearts, as for that subtle something,
-                    that quality of air that emanation from old trees, that so
+                    {data?.description}
                   </Typography>
                 </Fade>
                 <Fade direction="up">
