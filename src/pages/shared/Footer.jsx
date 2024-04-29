@@ -95,7 +95,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-6 text-sm text-center ">
+      <div className="pb-6 text-sm text-center ">
         &copy; 2024 Travelors. All rights reserved.
       </div>
     </footer>
