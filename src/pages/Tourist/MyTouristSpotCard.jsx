@@ -87,51 +87,33 @@ const MyTouristSpotCard = ({
     // 		</div>
     // 	</div>
     // </section>
-    <div className="rounded-md md:rounded-xl card shadow-md md:grid grid-cols-12 gap-4 md:gap-6 p-0 md:p-3 lg:p-4 border">
-      <div className="col-span-5">
-        <img
-          src={image}
-          className="h-full max-h-[147px] object-cover w-full object-center rounded-md rounded-b-none md:rounded-b-xl md:rounded-xl"
-        />
-      </div>
-      <div className="col-span-5 px-3 md:px-0">
-        <div className="flex items-center justify-between">
-          <Typography className="font-semibold text-xl">{spot_name}</Typography>
-        </div>
-        <div className="mb-2 mt-1">
-          <p className="flex items-center gap-2 pt-0 text-[15px]">
-            <span> Specially for {seasonality}</span> <span className="text-lg md:text-xl text-c-primary"> {seasonalityIcon}</span>
-          </p>
-        </div>
-        <div>
-          <div className="flex gap-4 justify-between">
-            <p className="flex items-center gap-2 py-2 ">
-              <IoTime className="text-c-primary text-xl"></IoTime>{" "}
-              <span>{travelTime} Days</span>
-            </p>
-          </div>
-          <div className="flex gap-4 justify-between w-full mr-4">
-            <p className="flex items-center gap-2 self-end">
-              <FaMapLocationDot className="text-c-primary text-xl"></FaMapLocationDot>{" "}
-              <span>{country}</span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="col-span-2 pb-3 px-3 md:pb-0 md:px-0 md:self-center self-end gap-4 flex md:flex-col">
-        <Link to={`/update/${_id}`}>
-          <button className=" rounded-md hover:bg-c-hover bg-c-primary  text-white p-2 text-2xl">
-            <MdModeEdit></MdModeEdit>
-          </button>
-        </Link>
-        <button
-          onClick={() => handleDelete(_id)}
-          className=" rounded-md hover:bg  bg-[#ea4744]  text-white p-2 text-2xl w-fit"
-        >
-          <MdDelete></MdDelete>
-        </button>
-      </div>
-    </div>
+        <tr className="text-gray-600 text-sm md:text-base">
+          <td className="px-2 md:px-6 py-4 whitespace-nowrap text-sm font-medium ">
+            {spot_name}
+          </td>
+          <td className="hidden md:block px-2 md:px-6 py-4 whitespace-nowrap text-sm ">
+            {country}
+          </td>
+          <td className="px-2 md:px-6 py-4 whitespace-nowrap text-sm ">
+            ${cost}
+          </td>
+          <td className="px-2 md:px-6 py-4 whitespace-nowrap text-sm ">
+            {travelTime} Days
+          </td>
+          <td className="px-2 md:px-6 py-4 whitespace-nowrap text-end text-sm font-medium flex gap-2">
+            <Link to={`/update/${_id}`}>
+              <button className=" rounded-md hover:bg-c-hover bg-c-primary  text-white p-2 md:text-xl">
+                <MdModeEdit></MdModeEdit>
+              </button>
+            </Link>
+            <button
+              onClick={() => handleDelete(_id)}
+              className=" rounded-md hover:bg  bg-[#ea4744]  text-white p-2 md:text-xl w-fit"
+            >
+              <MdDelete></MdDelete>
+            </button>
+          </td>
+        </tr>
   );
 };
 
