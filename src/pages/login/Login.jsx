@@ -38,8 +38,23 @@ const Login = () => {
   // social login
   const handleGoogleLogin = () => {
     googleLogin()
-      .then(() => {
+      .then((userCredential) => {
+        console.log(userCredential);
+        const user = userCredential.user;
+        const name = user.displayName;
+        const email = user.email;
+        const photo = user.photoURL;
+        const userDetails = { name, email, photo };
         toast.success("Login Success");
+        fetch("https://travelors-server.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userDetails),
+        })
+          .then()
+          .then();
         navigate(location?.state ? location.state : "/");
         console.log(location?.state);
       })
@@ -50,7 +65,23 @@ const Login = () => {
 
   const handleGithubLogin = () => {
     githubLogin()
-      .then(() => {
+      .then((userCredential) => {
+        console.log(userCredential);
+        const user = userCredential.user;
+        const name = user.displayName;
+        const email = user.email || "Not Found";
+        const photo = user.photoURL;
+        const userDetails = { name, email, photo };
+        toast.success("Login Success");
+        fetch("https://travelors-server.vercel.app/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userDetails),
+        })
+          .then()
+          .then();
         toast.success("Login Success");
         navigate(location?.state ? location.state : "/");
       })

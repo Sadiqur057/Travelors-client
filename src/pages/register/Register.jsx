@@ -29,22 +29,29 @@ const Register = () => {
     const password = data.password;
     const name = data.name;
     const photo = data.photo;
+    const userDetails = { email, name, photo };
+    createUser(email, password).then(() => {
+      toast.success("Account created succesfully");
 
-    createUser(email, password)
-      .then(() => {
-        toast.success("Account created succesfully");
-        updateUserProfile(name, photo)
-          .then(() => {
-            setReload(true);
-            navigate(location?.state ? location.state : "/");
-          })
-          .catch((error) => {
-            toast.error(error.message.split("(")[1].split(")")[0]);
-          });
+      fetch("https://travelors-server.vercel.app/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userDetails),
       })
-      .catch((error) => {
-        toast.error(error.message.split("(")[1].split(")")[0]);
-      });
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+
+      updateUserProfile(name, photo)
+        .then(() => {
+          setReload(true);
+          navigate(location?.state ? location.state : "/");
+        })
+        .catch((error) => {
+          toast.error(error?.message.split("(")[1].split(")")[0]);
+        });
+    });
   };
 
   return (
