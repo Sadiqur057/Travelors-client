@@ -2,6 +2,7 @@ import { Select, Option, Input, Textarea } from "@material-tailwind/react";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const UpdateTouristSpot = () => {
   const [touristSpot, setTouristPost] = useState([]);
@@ -19,12 +20,12 @@ const UpdateTouristSpot = () => {
   const {
     _id,
     visitors,
-    seasonality : season,
+    seasonality: season,
     spot_name,
-    country : countryName,
+    country: countryName,
     location,
     cost,
-    travelTime : duration,
+    travelTime: duration,
     description,
     image,
   } = touristSpot || {};
@@ -114,7 +115,7 @@ const UpdateTouristSpot = () => {
           }).then(() => {
             navigate("/my-tourist-spot");
           });
-        }else{
+        } else {
           Swal.fire({
             title: "Warning!",
             text: "You haven't updated anything",
@@ -128,9 +129,13 @@ const UpdateTouristSpot = () => {
   };
   return (
     <div className="bg-cool py-10 px-4 md:px-10 ">
-      
+      <Helmet>
+        <title>Travelors | Update Tourist Spots</title>
+      </Helmet>
       <div className="max-w-3xl mx-auto bg-base-100 p-4 md:p-4 rounded-xl">
-      <h1 className="text-center text-2xl md:text-3xl font-semibold pt-4 md:pt-10  pb-4 md:pb-6">Update Information for {spot_name}</h1>
+        <h1 className="text-center text-2xl md:text-3xl font-semibold pt-4 md:pt-10  pb-4 md:pb-6">
+          Update Information for {spot_name}
+        </h1>
         <form
           onSubmit={handleAddSpot}
           className="container flex flex-col mx-auto space-y-12"
@@ -184,7 +189,12 @@ const UpdateTouristSpot = () => {
 
               <div className="col-span-full">
                 <div className="relative w-full min-w-[200px]">
-                <Textarea name="description" color="teal" label="Description" defaultValue={description}></Textarea>
+                  <Textarea
+                    name="description"
+                    color="teal"
+                    label="Description"
+                    defaultValue={description}
+                  ></Textarea>
                 </div>
               </div>
               <div className="col-span-full lg:col-span-2">

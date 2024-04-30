@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import TouristSpotCard from "../shared/TouristSpotCard";
 import { Spinner } from "@material-tailwind/react";
+import { Helmet } from "react-helmet-async";
 
 const CountrySpecificSpots = () => {
   const [loading, setLoading] = useState(true);
@@ -37,6 +38,9 @@ const CountrySpecificSpots = () => {
   }
   return (
     <section className="text-gray-600 body-font pb-6 md:pb-10">
+      <Helmet>
+        <title>Travelors | {country?.name}</title>
+      </Helmet>
       <div className="container px-5 py-8 mx-auto">
         <div className="flex flex-wrap w-full mb-20 items-center">
           <div className="lg:w-1/2 w-full mb-6 lg:mb-0">

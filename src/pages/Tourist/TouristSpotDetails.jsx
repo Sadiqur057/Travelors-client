@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { Spinner } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const TouristSpotDetails = () => {
   const [loading, setLoading] = useState(true);
@@ -36,6 +37,9 @@ const TouristSpotDetails = () => {
 
   return (
     <section className="body-font mt-6 md:mt-10">
+      <Helmet>
+        <title>Travelors | {spot_name}</title>
+      </Helmet>
       <div className="w-[90%] md:w-5/6 mx-auto">
         <div className="mb-4 md:mb-0 w-full mx-auto relative">
           <img

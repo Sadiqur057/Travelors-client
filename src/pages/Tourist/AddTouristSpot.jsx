@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Select, Option, Input, Textarea } from "@material-tailwind/react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddTouristSpot = () => {
   window.scrollTo(0, 0);
@@ -97,6 +98,9 @@ const AddTouristSpot = () => {
 
   return (
     <div className="bg-cool py-10">
+      <Helmet>
+        <title>Travelors | Add Tourist Spots</title>
+      </Helmet>
       <section className="p-6 bg-base-100 w-[90%] max-w-4xl mx-auto rounded-md">
         <div className="space-y-2 col-span-full lg:col-span-1">
           <p className="text-center font-bold text-2xl md:text-3xl py-8">
@@ -166,7 +170,11 @@ const AddTouristSpot = () => {
 
               <div className="col-span-full">
                 <div className="relative w-full min-w-[200px]">
-                  <Textarea name="description" color="teal" label="Description"></Textarea>
+                  <Textarea
+                    name="description"
+                    color="teal"
+                    label="Description"
+                  ></Textarea>
                 </div>
               </div>
               <div className="col-span-full lg:col-span-2">
