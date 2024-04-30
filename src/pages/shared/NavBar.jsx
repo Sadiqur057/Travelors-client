@@ -79,7 +79,7 @@ export function NavBar() {
               isActive ? activeStyles : inactiveStyles
             }
           >
-            MyList
+            My List
           </NavLink>
         </>
       )}
