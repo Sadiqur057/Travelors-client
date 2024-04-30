@@ -25,7 +25,7 @@ export function CarouselCustomNavigation() {
   },
   {
     "title": "Authentic Experiences",
-    "description": "GGet a taste of local cultures from Cambodia to Vietnam. Experience authentic Southeast Asia with us. Immerse yourself in the traditions and lifestyles of the locals.",
+    "description": "Get a taste of local cultures from Cambodia to Vietnam. Experience authentic Southeast Asia with us. Immerse yourself in the traditions and lifestyles of the locals.",
     "image": slider3
   },
   {
@@ -35,7 +35,7 @@ export function CarouselCustomNavigation() {
   },
   {
     "title": "Your Journey, Your Rules",
-    "description": " AAdd, update, or delete your favorite spots anytime. You are in control of your travel itinerary. Customize your journey according to your preferences and interests.",
+    "description": " Add, update, or delete your favorite spots anytime. You are in control of your travel itinerary. Customize your journey according to your preferences and interests.",
     "image": slider5
   },
   {

@@ -44,7 +44,7 @@ const TouristCardSection = () => {
       </div>
 
         <div className=" grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 my-10 md:my-14">
-        <Fade cascade damping={0.3}>
+        <Fade cascade damping={0.2}>
           {touristSpots.map((touristSpot) => (
             <TouristSpotCard
               key={touristSpot._id}
