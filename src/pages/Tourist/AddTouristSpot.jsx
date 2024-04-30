@@ -227,6 +227,7 @@ const AddTouristSpot = () => {
               <div className="col-span-full">
                 <input
                   type="submit"
+                  value="Add"
                   className="bg-c-primary hover:bg-c-hover btn btn-neutral text-white w-full"
                 />
               </div>
