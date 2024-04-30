@@ -46,7 +46,7 @@ const TouristSpotDetails = () => {
         <div className="flex flex-col md:flex-row lg:space-x-12">
           <div className="px-4 lg:px-0 mt-4 md:mt-6  text-lg leading-relaxed w-full lg:w-3/4">
             <h1 className="font-bold text-3xl mb-3">{spot_name}</h1>
-            <p className="pb-6 text-gray-700">{description}</p>
+            <p className="pb-6 text-gray-700 text-base">{description}</p>
             <div className="overflow-x-auto">
               <table className="table ">
                 <tbody>
